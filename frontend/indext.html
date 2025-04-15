@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informe Eco por Voz</title>
+</head>
+<body>
+  <h2>Dictado por voz</h2>
+  <button onclick="empezarDictado()">🎙️ Empezar a dictar</button>
+  <button onclick="detenerDictado()">✋ Detener</button>
+  <br/><br/>
+  <textarea id="texto" rows="10" cols="50" placeholder="Aquí aparecerá el texto dictado..."></textarea>
+  <br/>
+  <button onclick="enviarTexto()">Generar informe</button>
+
+  <h3>Informe generado:</h3>
+  <pre id="informe"></pre>
+
+  <script>
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "es-ES";
+    recognition.interimResults = false;
+    recognition.continuous = true;
+
+    recognition.onresult = function(event) {
+      const textoActual = document.getElementById("texto").value;
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          document.getElementById("texto").value = textoActual + " " + event.results[i][0].transcript;
+        }
+      }
+    };
+
+    function empezarDictado() {
+      recognition.start();
+    }
+
+    function detenerDictado() {
+      recognition.stop();
+    }
+
+    async function enviarTexto() {
+      const texto = document.getElementById("texto").value;
+
+      const response = await fetch("https://<TU_BACKEND>.onrender.com/generar_informe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texto })
+      });
+
+      const data = await response.json();
+      document.getElementById("informe").textContent = data.informe || "Error al generar informe.";
+    }
+  </script>
+</body>
+</html>
