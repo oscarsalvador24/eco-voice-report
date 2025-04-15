@@ -1,0 +1,6 @@
+Informe de ecocardiograma
+
+Texto dictado:
+{{texto}}
+
+Fin del informe.
