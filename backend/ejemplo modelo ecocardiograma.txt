@@ -1,0 +1,11 @@
+ECOCARDIOGRAMA 
+Ventrículo izquierdo de tamaño normal y grosor normales (DTDVI xx mm, SIV xxmm).
+Función sistólica global y segmentarias conservadas, con FEVI estimada del xx%.
+Llenado mitral normal
+Ventrículo derecho de tamaño y función normales (TAPSE xx mm)
+Ambas aurículas de tamaño normal
+Válvula mitral con velos finos, flexibles, sin datos de estenosis ni insuficiencia
+Válvula aórtica trivalva con velos finos, flexibles, sin datos de estenosis ni insuficiencia
+Válvula tricúspide con velos finos, flexibles, sin datos de estenosis ni insuficiencia
+Válvula pulmonar con velos finos, flexibles, sin datos de estenosis ni insuficiencia
+No derrame pericárdico
