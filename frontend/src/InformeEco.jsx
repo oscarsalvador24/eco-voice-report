@@ -34,7 +34,7 @@ const empezarDictado = () => { manualStop = false; recognition && recognition.st
 
 const detenerDictado = () => { manualStop = true; recognition && recognition.stop(); };
 
-const generarInforme = async () => { setLoading(true); setInforme(""); try { const response = await fetch("https://TU_BACKEND.onrender.com/generar_informe", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ texto }), }); const data = await response.json(); setInforme(data.informe || "No se pudo generar el informe."); } catch (err) { setInforme("Error al conectar con el servidor."); } finally { setLoading(false); } };
+const generarInforme = async () => { setLoading(true); setInforme(""); try { const response = await fetch("https://eco-backend-uyi9.onrender.com/generar_informe", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ texto }), }); const data = await response.json(); setInforme(data.informe || "No se pudo generar el informe."); } catch (err) { setInforme("Error al conectar con el servidor."); } finally { setLoading(false); } };
 
 return ( <div className="max-w-3xl mx-auto p-4 text-gray-800"> <h1 className="text-2xl font-bold mb-4">Informe de Ecocardiograma por Voz</h1>
 
